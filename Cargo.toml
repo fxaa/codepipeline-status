@@ -1,0 +1,16 @@
+[package]
+name = "codepipeline-status"
+version = "0.1.0"
+authors = ["dlewisn 🐕 <dlewisn@amazon.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+rusoto_core = "0.45"
+rusoto_codepipeline = "0.45"
+tokio = { version = "0.2", features = ["full"] }
+pretty_env_logger = "0.4"
+log = "0.4"
+tui = { version = "0.10", features = ["crossterm"] }
+crossterm = "0.17"
