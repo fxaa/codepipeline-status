@@ -42,15 +42,15 @@ async fn main() -> Result<(), Box<dyn Error>> {
         .await?;
     info!("Successfully listed pipelines.");
 
-    // find the DPBuilder pipeline by picking the first one with a correct-looking name
+    // find the appropriate pipeline by picking the first one with a correct-looking name for now
     let pipelines_list = pipelines_list_res.pipelines.ok_or("No pipelines!")?;
     let dpbuilder_pipeline = pipelines_list
         .into_iter()
         .find(|pipeline| match &pipeline.name {
-            Some(name) => name.find("JourneysDPBuilderBuildStack").is_some(),
+            Some(name) => name.find("DavidTestStack").is_some(),
             None => false,
         })
-        .ok_or_else(|| "Couldn't find the DPBuilder pipeline!")?;
+        .ok_or_else(|| "Couldn't find the DavidTestStack pipeline!")?;
 
     let pipeline_name = dpbuilder_pipeline.name.unwrap();
     let get_pipeline_input = GetPipelineStateInput {
